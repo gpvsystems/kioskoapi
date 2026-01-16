@@ -2,7 +2,9 @@ const express = require('express');
 const app = express();
 require('dotenv').config();
 const ProductosService = require('./Aplicacion/Servicios/productosServices.js');
+const ProveedorServices = require('./Aplicacion/Servicios/ProveedorServices.js');
 const productosService = new ProductosService();
+const proveedorService = new ProveedorServices();
 
 
 // Middleware para parsear JSON
@@ -40,6 +42,26 @@ app.get('/api/productos', async (req, res) => {
 
 });
 
+app.get('/api/proveedores', async (req, res) => {
+  try {
+    let proveedores = await proveedorService.obtenerTodosLosProveedores();
+
+    if (proveedores.length === 0) {
+      // si no hay proveedores
+      return res.status(404).json({ mensaje: 'No se encontraron proveedores', proveedores: [] });
+    } else {
+      // si hay proveedores
+      return res.status(200).json({ mensaje: 'Lista de proveedores', proveedores: proveedores });
+    }
+
+  } catch (error) {
+    //si hay un error en el servidor
+    console.error('Error al obtener los proveedores:', error);
+    res.status(500).json({ mensaje: 'Error interno del servidor' });
+
+  }
+
+});
 
 
 // Iniciar el servidor
