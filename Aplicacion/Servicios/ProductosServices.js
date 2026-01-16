@@ -1,12 +1,16 @@
 const productosRepo = require('../../Infraestructura/Repositories/productosRepository.js');
 
 class ProductosService {
+ 
     constructor() {
-        this.productosRepo = new productosRepository();
+        this.productosRepo = new productosRepo();
     }
     async obtenerTodosLosProductos() {
-        return await this.productosRepo.obtenerTodos();
+        let productos = await this.productosRepo.obtenerTodos();
+        return productos;
     }
+       
+    
     async obtenerProductoPorId(id) {
         return await this.productosRepo.obtenerPorId(id);
     }

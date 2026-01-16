@@ -18,6 +18,7 @@ app.get('/api/productos', (req, res) => {
   let productos = productosService.obtenerTodosLosProductos();
  /*  productos = []; // Simular sin productos */
 
+ console.log(productos);
   if(productos.length === 0) {
     return res.status(404).json({ mensaje: 'No se encontraron productos', productos: [] });
   }else{
@@ -27,13 +28,11 @@ app.get('/api/productos', (req, res) => {
   res.json({ mensaje: 'Lista de productos', productos: productos });
 });
 
-// Ruta POST ejemplo
-app.post('/api/datos', (req, res) => {
-  res.json({ mensaje: 'Datos recibidos', datos: req.body });
-});
+
 
 // Iniciar el servidor
 const PUERTO = process.env.PORT || 3000;
+
 app.listen(PUERTO, () => {
   console.log(`Servidor ejecutándose en http://localhost:${PUERTO}`);
 });

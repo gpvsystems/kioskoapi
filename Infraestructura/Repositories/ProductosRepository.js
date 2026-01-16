@@ -1,9 +1,14 @@
-const ProductosModel = require('../../Proveedor.js');
+//const ProductosModel = require('../../Proveedor.js');
 
 module.exports = class ProductosRepository {
+
+    constructor() {
+        // Aquí podrías inicializar la conexión a la base de datos si es necesario
+    }
+    
     async obtenerTodos() {
        
-        let productos = [
+        var productos = [
             {
                 id: 1,
                 nombre: 'Producto 1',
@@ -26,8 +31,8 @@ module.exports = class ProductosRepository {
                 stock: 75
             }
         ];
+        console.log("Repositorio: ", productos);
         return productos;
     }
 }
-module.exports = ProductosRepository;
         
