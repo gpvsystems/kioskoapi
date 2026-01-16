@@ -14,6 +14,7 @@ class ProveedorRepository {
 
         proveedores.push(proveedor1,proveedor2,proveedor3);
         
+        console.log("Repositorio Proveedores: ", proveedores);
         return proveedores;
     }
 }
