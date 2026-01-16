@@ -1,4 +1,4 @@
-const  proveedorModel = require('../../Dominio/Entidades/proveedor.js');
+const  proveedorModel = require('../../Dominio/Entidades/Proveedor.js');
 
 class ProveedorRepository {
     constructor() {
@@ -17,4 +17,4 @@ class ProveedorRepository {
         return proveedores;
     }
 }
-export default ProveedorRepository;
+module.exports = ProveedorRepository;
