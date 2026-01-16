@@ -1,4 +1,4 @@
-const productosRepository = require('../../Infraestructura/Repositorios/ProductosRepository');
+const productosRepo = require('../../Infraestructura/Repositories/productosRepository.js');
 
 class ProductosService {
     constructor() {
