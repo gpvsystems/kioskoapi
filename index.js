@@ -13,9 +13,9 @@ app.get('/', (req, res) => {
   res.send('¡Servidor Express funcionando!');
 });
 
-app.get('/api/productos', (req, res) => {
+app.get('/api/productos', async (req, res) => {
 
-  let productos = productosService.obtenerTodosLosProductos();
+  let productos = await productosService.obtenerTodosLosProductos();
  /*  productos = []; // Simular sin productos */
 
  console.log(productos);
